@@ -19,7 +19,6 @@ return new class extends Migration
             $table->string('company_logo')->nullable();
             $table->string('about_us');
             $table->integer('company_type');
-            $table->integer('key_product_line');
             $table->string('country');
             $table->string('status');
             $table->foreignId('user_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
