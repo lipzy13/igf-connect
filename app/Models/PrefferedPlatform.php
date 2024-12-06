@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PrefferedPlatform extends Model
+class PreferredPlatform extends Model
 {
     //
     protected $fillable = [

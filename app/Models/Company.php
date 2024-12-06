@@ -28,7 +28,7 @@ class Company extends Model
         'user_id',
     ];
 
-    public function keyproduct()
+    public function keyproductline()
     {
         return $this->hasMany(KeyProductLine::class);
     }
@@ -38,8 +38,8 @@ class Company extends Model
         return $this->hasMany(BizMatch::class);
     }
 
-    public function prefferedplatform()
+    public function preferredplatform()
     {
-        return $this->hasMany(PrefferedPlatform::class);
+        return $this->hasMany(PreferredPlatform::class);
     }
 }

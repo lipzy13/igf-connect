@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('preffered_platforms', function (Blueprint $table) {
+        Schema::create('preferred_platforms', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->foreignId('company_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('preffered_platforms');
+        Schema::dropIfExists('preferred_platforms');
     }
 };
