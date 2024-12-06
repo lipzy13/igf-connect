@@ -40,6 +40,11 @@ class Company extends Model
 
     public function preferred_platform()
     {
-        return $this->hasMany(PreferredPlatform::class);
+        return $this->hasmany(preferredPlatform::class);
+    }
+
+    public function schedule()
+    {
+        return $this->hasmany(Schedule::class);
     }
 }

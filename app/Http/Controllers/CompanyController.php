@@ -48,8 +48,12 @@ class CompanyController extends Controller
             'key_product_lines.*' => 'sometimes',
             'biz_matchings' => 'sometimes|array',
             'biz_matchings.*' => 'sometimes',
-            'prefered_platforms' => 'sometimes|array',
+            'preferred_platforms' => 'sometimes|array',
             'preferred_platforms.*' => 'sometimes',
+            'schedules' => 'sometimes|array',
+            'schedules.*.date' => 'sometimes',
+            'schedules.*.time_start' => 'sometimes',
+            'schedules.*.time_end' => 'sometimes',
         ]);
 
         $company = Company::create([
@@ -67,7 +71,7 @@ class CompanyController extends Controller
         if (isset($validatedData['key_product_lines'])) {
             foreach ($validatedData['key_product_lines'] as $prod) {
                 $company->keyproductline()->create([
-                    'name' => $prod, // Adjust field if necessary
+                    'name' => $prod,
                 ]);
             }
         }
@@ -75,17 +79,25 @@ class CompanyController extends Controller
         if (isset($validatedData['biz_matchings'])) {
             foreach ($validatedData['biz_matchings'] as $bizmatch) {
                 $company->bizmatch()->create([
-                    'name' => $bizmatch->nama,
-                    'company_id' => $company->id
+                    'name' => $bizmatch,
                 ]);
             }
         }
 
-        if (isset($validatedData['preffered_platforms'])) {
-            foreach ($validatedData['preffered_platforms'] as $prefplat) {
+        if (isset($validatedData['preferred_platforms'])) {
+            foreach ($validatedData['preferred_platforms'] as $prefplat) {
                 $company->preferred_platform()->create([
-                    'name' => $prefplat->nama,
-                    'company_id' => $company->id
+                    'name' => $prefplat,
+                ]);
+            }
+        }
+
+        if (isset($validatedData['schedules'])) {
+            foreach ($validatedData['schedules'] as $schedule) {
+                $company->schedule()->create([
+                    'date' => $schedule["date"],
+                    'time_start' => $schedule["time_start"],
+                    'time_end' => $schedule["time_end"],
                 ]);
             }
         }
