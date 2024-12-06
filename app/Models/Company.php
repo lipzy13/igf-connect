@@ -38,7 +38,7 @@ class Company extends Model
         return $this->hasMany(BizMatch::class);
     }
 
-    public function preferredplatform()
+    public function preferred_platform()
     {
         return $this->hasMany(PreferredPlatform::class);
     }

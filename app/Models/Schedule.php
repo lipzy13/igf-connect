@@ -13,4 +13,9 @@ class Schedule extends Model
         'time_start',
         'time_end',
     ];
+
+    public function company()
+    {
+        return $this->belongsTo(Company::class);
+    }
 }
